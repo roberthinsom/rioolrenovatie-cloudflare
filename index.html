@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimale Overlast, Maximale Resultaten: Waarom Kies Je voor Relining?</title>
+    <style>
+        :root {
+            --primary: #2a6496;
+            --secondary: #3a7ca5;
+            --accent: #4CAF50;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --text: #333333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background-color: #f5f7fa;
+            transform: skewY(-3deg);
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lead {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-img {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 30px auto;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+        
+        section {
+            padding: 60px 0;
+            background-color: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .section-dark {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .section-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section-dark h2, .section-accent h2 {
+            color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .check-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .check-list li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .check-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px auto;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(0,0,0,0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 20px;
+            color: var(--primary);
+        }
+        
+        .image-comparison {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .comparison-item {
+            flex: 1;
+            min-width: 300px;
+            margin: 10px;
+            text-align: center;
+        }
+        
+        .comparison-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .cta-box {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 8px;
+            margin: 50px 0;
+        }
+        
+        .cta-box h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background-color: #3e8e41;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .applications {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .application {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .application-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .applications {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .application {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .image-comparison {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Minimale Overlast, Maximale Resultaten: Waarom Kies Je voor Relining?</h1>
+            <p class="lead">Leidingen zijn de verborgen levensaders van elk gebouw, maar wanneer ze problemen vertonen, kan traditionele <a href="https://riool-herstel.nl/" target="_blank" style="color: white; text-decoration: underline;">rioolrenovatie</a> een hoop rommel en overlast veroorzaken. Gelukkig biedt <strong>relining</strong> een revolutionaire oplossing: minimale verstoring met maximale resultaten.</p>
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Relining technologie in actie" class="hero-img">
+        </div>
+    </header>
+    
+    <div class="container">
+        <section>
+            <h2>1. Geen Graafwerk, Geen Chaos: De Stille Revolutie Onder Je Voeten</h2>
+            <p>Traditionele leidingherstelmethoden betekenen meestal:</p>
+            <ul class="check-list">
+                <li>Graafmachines in je tuin of oprit</li>
+                <li>Opgebroken vloeren in huis</li>
+                <li>Wekenlange herstelwerkzaamheden</li>
+                <li>Hoge kosten voor herstel van bestrating en landschap</li>
+            </ul>
+            
+            <div class="image-comparison">
+                <div class="comparison-item">
+                    <img src="https://images.unsplash.com/photo-1581093196277-1c8ddf4850f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Traditioneel graafwerk">
+                    <p><strong>Traditionele methode</strong><br>Veel graafwerk en overlast</p>
+                </div>
+                <div class="comparison-item">
+                    <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Relining werkzaamheden">
+                    <p><strong>Relining methode</strong><br>Minimale verstoring</p>
+                </div>
+            </div>
+            
+            <p>Met <strong>relining</strong> wordt de bestaande leiding van binnenuit gerepareerd, zonder sloopwerk. Een flexibele coating of buis wordt in de beschadigde leiding aangebracht en uitgehard, waardoor een nieuwe, duurzame binnenlaag ontstaat.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mooie tuin zonder graafwerk">
+                    <h3>Geen vernielde tuin</h3>
+                    <p>Behoud je mooi aangelegde tuin of terras zonder graafwerkzaamheden</p>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://images.unsplash.com/photo-1583845112203-4541b01c57a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Schoon huis zonder overlast">
+                    <h3>Geen overlast binnen</h3>
+                    <p>Geen stof, lawaai of rommel in je leefruimte tijdens de werkzaamheden</p>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Geld besparen">
+                    <h3>Kostenbesparing</h3>
+                    <p>Bespaar tot 70% op herstelkosten in vergelijking met traditionele methoden</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-dark">
+            <div class="container">
+                <h2>2. Van Probleem naar Oplossing in Een Dag: Snelheid als Troef</h2>
+                <p>Waar conventionele reparaties dagen of weken kunnen duren, is relining vaak <strong>binnen één werkdag</strong> voltooid. Dit komt door:</p>
+                
+                <ul class="check-list">
+                    <li>Geen uitgebreid graafwerk nodig</li>
+                    <li>Directe toepassing via bestaande leidingopeningen</li>
+                    <li>Snelle uitharding van moderne materialen</li>
+                </ul>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Relining proces">
+                        <h3>Efficiënt proces</h3>
+                        <p>Geen tijdrovende voorbereidingen nodig</p>
+                    </div>
+                    <div class="benefit-card">
+                        <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Technicus aan het werk">
+                        <h3>Ervaren technici</h3>
+                        <p>Snelle uitvoering door gespecialiseerde professionals</p>
+                    </div>
+                    <div class="benefit-card">
+                        <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Materialen">
+                        <h3>Moderne materialen</h3>
+                        <p>Snel uithardende harsen voor direct resultaat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>3. Sterker dan Nieuw: De Verrassende Levensduur van Gerelinde Leidingen</h2>
+            <p>Een hardnekkig misverstand is dat relining slechts een lapmiddel zou zijn. In werkelijkheid:</p>
+            
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    "Onze gerelinde leidingen gaan gemiddeld 50 jaar mee - langer dan de oorspronkelijke buizen uit de jaren 70! De gladde binnenlaag voorkomt aanslag en verstoppingen, waardoor het onderhoud minimaal is."
+                </div>
+                <div class="testimonial-author">- Leidingexpert bij Riolering Innovaties</div>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Duurzame leidingen">
+                    <h3>Langere levensduur</h3>
+                    <p>Gerelinde leidingen hebben vaak een langere levensduur dan nieuwe PVC-buizen</p>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://images.unsplash.com/photo-1581093057305-406aab4dc92c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Corrosiebestendig">
+                    <h3>Bestand tegen schade</h3>
+                    <p>Resistent tegen corrosie, wortelingroei en chemische invloeden</p>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Flexibele oplossing">
+                    <h3>Flexibele oplossing</h3>
+                    <p>Minder gevoelig voor scheurvorming door bodembeweging</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-accent">
+            <div class="container">
+                <h2>4. Milieuvriendelijk & Kostenbesparend: Slim voor Portemonnee en Planeet</h2>
+                <p>Relining is niet alleen praktisch, maar ook ecologisch verantwoord:</p>
+                
+                <div class="image-comparison">
+                    <div class="comparison-item">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Milieuvriendelijk">
+                        <p><strong>Milieuvriendelijk</strong><br>90% minder materiaalverbruik</p>
+                    </div>
+                    <div class="comparison-item">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kostenbesparend">
+                        <p><strong>Kostenbesparend</strong><br>Tot €5.000 besparing per project</p>
+                    </div>
+                </div>
+                
+                <ul class="check-list">
+                    <li>Tot 90% minder materiaalverbruik (geen nieuwe buizen nodig)</li>
+                    <li>Minimale CO₂-uitstoot (geen zwaar graafmaterieel)</li>
+                    <li>Behoud van bestaande infrastructuur</li>
+                    <li>Herstelkosten van bestrating en landschap (tot €5.000 per project)</li>
+                    <li>Langetermijnonderhoud door duurzamere leidingen</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <h2>5. Toepassingen: Waar Werkt Relining Het Best?</h2>
+            <p>Deze innovatieve techniek is ideaal voor:</p>
+            
+            <div class="applications">
+                <div class="application">
+                    <div class="application-icon">🏠</div>
+                    <p>Woningen: Van rioolbuizen tot waterleidingen</p>
+                </div>
+                <div class="application">
+                    <div class="application-icon">🏢</div>
+                    <p>Bedrijfspanden: Minimale bedrijfsonderbreking</p>
+                </div>
+                <div class="application">
+                    <div class="application-icon">🏛</div>
+                    <p>Monumenten: Behoud van historische structuren</p>
+                </div>
+                <div class="application">
+                    <div class="application-icon">🏥</div>
+                    <p>Ziekenhuizen en scholen: Geen stof of geluidsoverlast</p>
+                </div>
+            </div>
+            
+            <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Relining toepassingen" style="width:100%; max-height:500px; object-fit:cover; border-radius:8px; margin-top:30px;">
+        </section>
+        
+        <div class="cta-box">
+            <h2>Conclusie: De Toekomst van Leidingonderhoud is Hier</h2>
+            <p>Relining combineert <strong>snelheid, duurzaamheid en kostenbesparing</strong> met een <strong>minimale impact</strong> op je leef- of werkomgeving. Of het nu gaat om een verstopte rioolbuis, een lekkende waterleiding of een bedrijf dat geen productiestop kan veroorloven - relining biedt een slimmere, schonere en efficiëntere oplossing dan traditionele methoden.</p>
+            <a href="#contact" class="btn">Gratis Inspectie Aanvragen</a>
+        </div>
+    </div>
+  
+</body>
+</html>
